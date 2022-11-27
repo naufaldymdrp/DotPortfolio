@@ -1,0 +1,42 @@
+@using System.Collections.Generic
+@using DotPortfolio.Web.Models
+@model IEnumerable<EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of Employee</h1>
+
+<div class="container">
+            <table class="table text-bg-primary">
+                <thead>
+                    <tr>
+                            <th scope="col">@Html.DisplayNameFor(m => m.Id)</th>
+                            <th scope="col">@Html.DisplayNameFor(m => m.Name)</th>
+                            <th scope="col">@Html.DisplayNameFor(m => m.EmployDate)</th>
+
+                            <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(_ => item.Id)</td>
+                        <td>@Html.DisplayFor(_ => item.Name)</td>
+                        <td>@Html.DisplayFor(_ => item.EmployDate)</td>
+                        <td>
+                            <a type="button" class="btn btn-warning" href="@Url.Action("Edit", new { item.Id })"><i class="bi bi-pencil-square"></i></a>
+                            <a type="button" class="btn btn-danger" href="@Url.Action("Delete", new { item.Id })"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+</div>
+
+@section Scripts {
+    <script src="~/js/employeeIndex.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
