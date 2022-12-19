@@ -9,6 +9,7 @@
 <h1>List of Employee</h1>
 
 <div class="container">
+            <a type="button" id="btnCreate" class="btn btn-info" href="@Url.Action("Create")">Create New Employee</a>
             <table class="table text-bg-primary">
                 <thead>
                     <tr>
@@ -27,8 +28,8 @@
                         <td>@Html.DisplayFor(_ => item.Name)</td>
                         <td>@Html.DisplayFor(_ => item.EmployDate)</td>
                         <td>
-                            <a type="button" class="btn btn-warning" href="@Url.Action("Edit", new { item.Id })"><i class="bi bi-pencil-square"></i></a>
-                            <a type="button" class="btn btn-danger" href="@Url.Action("Delete", new { item.Id })"><i class="bi bi-trash"></i></a>
+                            <a type="button" id="btnEdit" class="btn btn-warning" href="@Url.Action("Edit", new { item.Id })"><i class="bi bi-pencil-square"></i></a>
+                            <a type="button" id="btnDelete" class="btn btn-danger" href="@Url.Action("Delete", new { item.Id })"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                 }
